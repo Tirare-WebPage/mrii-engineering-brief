@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19231f">
+  <meta name="description" content="Tirare is developing a retrofit electric-assist system for manually powered cargo tricycles. This engineering briefing explains the existing drivetrain, design choices, access model and proposed pilot.">
+  <title>Tirare — Engineering briefing</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Tirare home">
+      <span class="wordmark-symbol">T<span>·</span></span>
+      <span class="wordmark-name">TIRARE<small>ENGINEERING BRIEFING</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#machine">The machine</a>
+      <a href="#evolution">CAD stages</a>
+      <a href="#systems">Existing systems</a>
+      <a href="#freewheel">One-way drive</a>
+      <a href="#tirare">Tirare</a>
+      <a href="#model">Access model</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#people">Guidance</a>
+    </nav>
+    <a class="header-contact" href="mailto:anuragfromtirare@gmail.com">Talk engineering <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-dark">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Tirare Mobility Technologies · Engineering / 2026</p>
+        <h1>The vehicle is<br>already here.<br><em>Electrify that.</em></h1>
+        <p class="hero-lede">Tirare is developing a bolt-on electric-assist system for the manually powered cargo tricycles people already rely on. The goal is to reduce the physical effort of work without asking the operator to replace the vehicle that earns their income.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#machine">Start with the machine <span>↓</span></a>
+          <a class="text-link light-link" href="#tirare">How Tirare fits together <span>↗</span></a>
+        </div>
+        <div class="hero-credits">
+          <div><strong>₹1,00,000</strong><span>IIIT Delhi · prototype-stage grant</span></div>
+          <div><strong>MRII</strong><span>Physical subsystem built and demonstrated</span></div>
+          <div><strong>Next</strong><span>Integrated drivetrain validation</span></div>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Market_porter_pedals_jugaad_goods_carrier_tricycle_in_Thoothukudi%2C_Tamil_Nadu%2C_India.jpg/1280px-Market_porter_pedals_jugaad_goods_carrier_tricycle_in_Thoothukudi%2C_Tamil_Nadu%2C_India.jpg" alt="Cargo tricycle used for goods transport in India" loading="eager" referrerpolicy="no-referrer" data-source-image>
+        <div class="hero-photo-note"><span>FIELD CONTEXT</span><p>A familiar machine. A demanding job. A different route to electrification.</p></div>
+        <figcaption>Context photograph; not the specific vehicle used for Tirare's CAD. <a href="https://commons.wikimedia.org/wiki/File:Market_porter_pedals_jugaad_goods_carrier_tricycle_in_Thoothukudi,_Tamil_Nadu,_India.jpg" target="_blank" rel="noopener">Photo source ↗</a></figcaption>
+      </figure>
+    </section>
+
+    <section class="opening-note section-paper">
+      <div class="opening-label">THE DESIGN QUESTION</div>
+      <div class="opening-main">
+        <p class="big-statement">A worker with a broken pedal was still moving goods. The question became: <em>how do we improve the vehicle already earning a living?</em></p>
+        <p class="body-copy">A new electric vehicle may be a good product and still be out of reach for someone who works on daily cash flow, cannot afford a long break from work, and relies on familiar local repairs. Tirare starts from that existing asset rather than from a new chassis.</p>
+      </div>
+      <div class="opening-side">
+        <p class="small-cap">WHAT THE RETROFIT IS DESIGNED TO PRESERVE</p>
+        <ul class="plain-list">
+          <li>The existing rear axle and wheel alignment</li>
+          <li>Pedals, chain, steering and brakes</li>
+          <li>Manual rideability if electric assist is unavailable</li>
+          <li>Local installation and repair as design requirements</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="chapter chapter-machine" id="machine">
+      <div class="chapter-intro">
+        <div class="chapter-number">01 <span>/ THE REFERENCE MACHINE</span></div>
+        <div class="chapter-title-wrap"><h2>Understand the axle<br>before adding a motor.</h2><p>Use the actual tricycle as the baseline. Its drivetrain is simple; its constraints are not.</p></div>
+      </div>
+      <div class="machine-layout">
+        <div class="media-stack">
+          <div class="user-media user-model media-large" data-user-media="reference-trike.glb">
+            <model-viewer src="assets/user/reference-trike.glb" alt="Interactive CAD view of the reference cargo tricycle" camera-controls auto-rotate rotation-per-second="8deg" shadow-intensity="0.8" exposure="1.05"></model-viewer>
+            <div class="media-empty"><span class="slot-tag">CAD · 01</span><strong>Reference cargo tricycle</strong><p>Add the real assembly or a clean rendered view. Keep the rear axle, sprocket, chain, crank, bearings and proposed mounting space visible.</p><code>assets/user/reference-trike.glb</code><small>GLB / glTF model · or use the image slot below</small></div>
+          </div>
+          <div class="user-media media-render" data-user-media="reference-trike-render.jpg">
+            <img src="assets/user/reference-trike-render.jpg" alt="Rendered CAD of the reference cargo tricycle" loading="lazy">
+            <div class="media-empty"><span class="slot-tag">IMAGE · 01A</span><strong>Reference view</strong><p>A side or three-quarter render works best here.</p><code>assets/user/reference-trike-render.jpg</code></div>
+          </div>
+        </div>
+        <div class="machine-notes">
+          <p class="small-cap">THE HUMAN POWER PATH</p>
+          <div class="power-path" aria-label="Pedals to rear axle torque path">
+            <div><span>01</span><strong>Pedals + crank</strong><small>Rider force becomes torque.</small></div>
+            <div><span>02</span><strong>Chain</strong><small>Transfers torque to the rear drive.</small></div>
+            <div><span>03</span><strong>Fixed sprocket</strong><small>On the reference trike, coupled directly to the axle.</small></div>
+            <div><span>04</span><strong>Solid rear axle</strong><small>Drives both rear wheels; no differential in this layout.</small></div>
+          </div>
+          <p class="machine-bottomline">If the motor turns the axle, a sprocket rigidly fixed to it can turn the chain and pedals too. MRII's drivetrain architecture accounts for this back-driving constraint while keeping the rider-input measurement distinct from powered-side torque.</p>
+          <details class="text-disclosure">
+            <summary>Component roles and protected interfaces</summary>
+            <div class="disclosure-body">
+              <p><strong>Crank and pedals</strong> provide rider input. The <strong>chain</strong> carries tensile load. The <strong>sprocket</strong> converts chain force into shaft torque. The <strong>rear axle</strong> transmits torque to the wheels and also sits within a structural system of bearings, wheel mounts, brakes and frame reactions. The <strong>frame and cargo bed</strong> carry the load; the <strong>steering and brakes</strong> remain essential vehicle systems, not optional packaging space.</p>
+              <p>These tricycles vary by maker and workshop. Confirm the exact sprocket attachment, axle diameter, bearing arrangement, brake hardware and frame geometry on each reference vehicle before finalising an interface.</p>
+            </div>
+          </details>
+          <div class="user-media media-video" data-user-media="existing-drivetrain.mp4">
+            <video src="assets/user/existing-drivetrain.mp4" controls playsinline preload="metadata" aria-label="Animation of the existing pedal drivetrain"></video>
+            <div class="media-empty"><span class="slot-tag">ANIMATION · 01B</span><strong>Follow the force through the tricycle</strong><p>Show crank → chain → fixed sprocket → solid axle → rear wheels. This is the baseline torque path MRII is designed to work within.</p><code>assets/user/existing-drivetrain.mp4</code></div>
+          </div>
+        </div>
+      </div>
+      <div class="cad-evolution-block" id="evolution">
+        <div class="evolution-heading">
+          <div><p class="small-cap">DESIGN EVOLUTION · FOUR CAD STAGES</p><h3>From the vehicle that exists<br>to the platform being tested.</h3></div>
+          <p>These four models document the design questions as they changed—not four decorative renders. Drag to orbit a model when the GLB is available, or use the matching still render.</p>
+        </div>
+        <div class="evolution-grid">
+          <article class="evolution-card">
+            <div class="user-media evolution-media" data-user-media="reference-trike.glb">
+              <model-viewer src="assets/user/reference-trike.glb" alt="CAD stage 1: existing cargo tricycle" camera-controls loading="lazy" shadow-intensity="0.65" exposure="1.02"></model-viewer>
+              <img class="evolution-fallback" src="assets/user/reference-trike-render.jpg" alt="Rendered CAD of the existing cargo tricycle" loading="lazy">
+              <div class="media-empty"><span class="slot-tag">MODEL 01 · REALITY</span><strong>The vehicle that exists</strong><p>Baseline tricycle. Show its solid axle, fixed sprocket, chain, bearings and usable mounting space.</p><code>GLB: assets/user/reference-trike.glb</code><small>Still fallback: assets/user/reference-trike-render.jpg</small></div>
+            </div>
+            <div class="evolution-copy"><span class="evolution-index">01 / REALITY</span><h4>Start with the actual machine.</h4><p>Identify what must be retained before proposing what can be added.</p></div>
+          </article>
+          <article class="evolution-card">
+            <div class="user-media evolution-media" data-user-media="cad-stage-02-first-attempt.glb">
+              <model-viewer src="assets/user/cad-stage-02-first-attempt.glb" alt="CAD stage 2: first power delivery concept" camera-controls loading="lazy" shadow-intensity="0.65" exposure="1.02"></model-viewer>
+              <img class="evolution-fallback" src="assets/user/cad-stage-02-first-attempt.jpg" alt="Rendered CAD of the first power delivery concept" loading="lazy">
+              <div class="media-empty"><span class="slot-tag">MODEL 02 · FIRST ATTEMPT</span><strong>Power delivery came first</strong><p>Show the early drive architecture and where the motor's torque would enter the tricycle.</p><code>GLB: assets/user/cad-stage-02-first-attempt.glb</code><small>Still fallback: assets/user/cad-stage-02-first-attempt.jpg</small></div>
+            </div>
+            <div class="evolution-copy"><span class="evolution-index">02 / FIRST ATTEMPT</span><h4>Make the power path visible.</h4><p>Explain the initial arrangement before the pedal-backdrive constraint was resolved.</p></div>
+          </article>
+          <article class="evolution-card">
+            <div class="user-media evolution-media" data-user-media="cad-stage-03-constraint-collision.glb">
+              <model-viewer src="assets/user/cad-stage-03-constraint-collision.glb" alt="CAD stage 3: constraint collision and revised packaging" camera-controls loading="lazy" shadow-intensity="0.65" exposure="1.02"></model-viewer>
+              <img class="evolution-fallback" src="assets/user/cad-stage-03-constraint-collision.jpg" alt="Rendered CAD showing the design constraint conflict" loading="lazy">
+              <div class="media-empty"><span class="slot-tag">MODEL 03 · CONSTRAINT COLLISION</span><strong>Where the design met reality</strong><p>Show the interface, packaging conflict or mechanical limitation that forced a change.</p><code>GLB: assets/user/cad-stage-03-constraint-collision.glb</code><small>Still fallback: assets/user/cad-stage-03-constraint-collision.jpg</small></div>
+            </div>
+            <div class="evolution-copy"><span class="evolution-index">03 / CONSTRAINT COLLISION</span><h4>Change the architecture, not the facts.</h4><p>The model should make the decisive constraint visible in one glance.</p></div>
+          </article>
+          <article class="evolution-card">
+            <div class="user-media evolution-media" data-user-media="cad-stage-04-current-platform.glb">
+              <model-viewer src="assets/user/cad-stage-04-current-platform.glb" alt="CAD stage 4: current Tirare platform concept" camera-controls loading="lazy" shadow-intensity="0.65" exposure="1.02"></model-viewer>
+              <img class="evolution-fallback" src="assets/user/cad-stage-04-current-platform.jpg" alt="Rendered CAD of the current Tirare platform concept" loading="lazy">
+              <div class="media-empty"><span class="slot-tag">MODEL 04 · CURRENT PLATFORM</span><strong>The platform now being tested</strong><p>Show the latest assembly and the interfaces that still require bench and vehicle-level tests.</p><code>GLB: assets/user/cad-stage-04-current-platform.glb</code><small>Still fallback: assets/user/cad-stage-04-current-platform.jpg</small></div>
+            </div>
+            <div class="evolution-copy"><span class="evolution-index">04 / CURRENT PLATFORM</span><h4>Design around what cannot change.</h4><p>Use this as the current reference for the MRII interface, drivetrain integration and proposed motor packaging.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-systems" id="systems">
+      <div class="chapter-intro">
+        <div class="chapter-number">02 <span>/ EXISTING ELECTRIFICATION</span></div>
+        <div class="chapter-title-wrap"><h2>Known components.<br>Different starting points.</h2><p>Electric drive already comes in several forms. The question is which architecture fits a legacy pedal cargo tricycle.</p></div>
+      </div>
+      <div class="systems-feature">
+        <figure class="system-photo system-photo-large">
+          <img src="https://www.tvsmotor.com/three-wheelers/-/media/Feature/tvs-three-wheeler/cargoevhd360/360-fold-webp-images-blue/Fixed-Side-Deck/N603_BlueFSD_TurnTable_10.webp?hash=8FA33DB93CDEB8D2B8A788B0855667B4&la=en" alt="Purpose-built electric cargo three-wheeler" loading="lazy" referrerpolicy="no-referrer" data-source-image>
+          <figcaption>Purpose-built electric cargo vehicle · <a href="https://www.tvsmotor.com/three-wheelers/king-kargo-ev-hd" target="_blank" rel="noopener">Published specification ↗</a></figcaption>
+        </figure>
+        <div class="system-feature-copy">
+          <p class="small-cap">A / COMPLETE CARGO EV</p>
+          <h3>The chassis and powertrain are designed together.</h3>
+          <p class="body-copy">A published heavy-duty example pairs an LFP battery and PMSM motor with a two-speed transmission, purpose-built chassis, suspension and hydraulic brakes.</p>
+          <div class="spec-strip"><div><strong>8.86 kWh</strong><span>LFP battery</span></div><div><strong>11 kW</strong><span>Maximum motor power</span></div><div><strong>40 Nm</strong><span>Published peak torque</span></div><div><strong>₹—</strong><span>Dealer price required</span></div></div>
+          <p class="small-note">This is a whole-vehicle solution, not a like-for-like retrofit price. Its chassis, rated loads and transmission are engineered as one package.</p>
+        </div>
+      </div>
+      <div class="system-ribbon">
+        <article class="system-mini">
+          <figure class="mini-photo"><img src="https://img.autocarpro.in/autocarpro/1cb3194f-985a-4340-880f-acfe44d4a594_riki.webp" alt="Electric cargo rickshaw with purpose-built chassis" loading="lazy" referrerpolicy="no-referrer" data-source-image><figcaption>Whole-vehicle cargo loader</figcaption></figure>
+          <div class="mini-copy"><p class="small-cap">B / E-RICKSHAW CARGO</p><h3>Battery + motor + reduction axle</h3><p>Typical stack: battery/BMS, motor/controller, reduction axle, charger, dedicated chassis, suspension and brakes.</p><p class="price-note"><strong>₹2,13,292</strong> <span>listed ex-showroom price for one published cargo model · 5.4 kWh battery · 164 km certified range</span></p><a class="source-link" href="https://www.bajajauto.com/three-wheelers/riki" target="_blank" rel="noopener">Current published specs and price ↗</a></div>
+        </article>
+        <article class="system-mini">
+          <figure class="mini-photo"><img src="https://static.wixstatic.com/media/eecf3f_38c6262ecbb942edaf07b3f8e63f123c~mv2.png/v1/fill/w_980%2Ch_980%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/eecf3f_38c6262ecbb942edaf07b3f8e63f123c~mv2.png" alt="Pedal rickshaw conversion kit components laid out" loading="lazy" referrerpolicy="no-referrer" data-source-image><figcaption>Pedal-rickshaw conversion kit components</figcaption></figure>
+          <div class="mini-copy"><p class="small-cap">C / PEDAL-RICKSHAW KIT</p><h3>Motor, controller and chain drive</h3><p>A listed kit includes a 48 V / 800 W motor and controller, throttle, harness, junction box and chain-related parts.</p><p class="price-note"><strong>₹5,800</strong> <span>supplier-listed kit price; battery inclusion, installation cost and fit for this solid axle are not established by the listing</span></p><a class="source-link" href="https://www.sagarelectrotech.com/product-page/pedal-rickshaw-conversion-kit" target="_blank" rel="noopener">Kit contents and listing ↗</a></div>
+        </article>
+        <article class="system-mini">
+          <figure class="mini-photo"><img src="https://www.leafbike.com/u_file/2602/28/products/10-inch-48v-scooter-motor-kit_62ee493ad4_2155364868.jpg?x-oss-process=image%2Fquality%2Cq_80%2Fresize%2Cm_lfit%2Ch_640%2Cw_640" alt="Motor wheel kit for a scooter conversion" loading="lazy" referrerpolicy="no-referrer" data-source-image><figcaption>Model-specific scooter conversion kit</figcaption></figure>
+          <div class="mini-copy"><p class="small-cap">D / SCOOTER OR MOTORCYCLE CONVERSION</p><h3>Built around a two-wheeler.</h3><p>Model-specific hub/mid-drive motor, battery/BMS, controller, throttle, wiring and mounts; fit depends on the donor wheel, frame and controls.</p><p class="price-note"><strong>₹34,217–₹53,400</strong> <span>published scooter-kit listing range across battery options; not a general motorcycle conversion quote</span></p><a class="source-link" href="https://www.leoev.in/collections/ev-scooter-conversionkit/2205927000002418341" target="_blank" rel="noopener">Kit variants and listed prices ↗</a></div>
+        </article>
+      </div>
+      <div class="systems-takeaway"><span class="takeaway-mark">↗</span><p>The components already exist. Tirare is working on the integration: <strong>fit assist to the existing axle and frame, preserve manual operation, and make access affordable.</strong></p></div>
+      <details class="text-disclosure disclosure-wide">
+        <summary>What these architectures generally contain</summary>
+        <div class="disclosure-body table-scroll">
+          <table class="component-table"><thead><tr><th>Architecture</th><th>Typical components</th><th>What changes for Tirare</th></tr></thead><tbody>
+            <tr><td>Purpose-built cargo EV</td><td>Traction battery/BMS, motor, inverter/controller, transmission/reduction, driven axle or differential, charging system, chassis, suspension, brakes and vehicle controls.</td><td>Excellent reference for load and duty requirements, but it replaces the vehicle rather than upgrading the operator's existing asset.</td></tr>
+            <tr><td>Electric rickshaw/loader</td><td>Battery, motor/controller, reduction axle, throttle, charger, wiring, fabricated chassis, suspension and brakes.</td><td>Lower entry price than many heavy-duty cargo EVs, but still a separate vehicle with its own servicing and ownership change.</td></tr>
+            <tr><td>Pedal-rickshaw conversion</td><td>Motor, controller, throttle, chain/sprockets or axle drive, battery and BMS, wiring, switchgear and mounts.</td><td>Closest category, but a kit listing does not prove fit on a particular solid axle, overrun behavior, load capacity or safe manual fallback.</td></tr>
+            <tr><td>Scooter/motorcycle conversion</td><td>Hub/mid-drive motor, battery, BMS, controller, throttle, harness, DC–DC and charging hardware, model-specific mechanical mounting.</td><td>Designed around the donor two-wheeler's frame and controls; it cannot be transferred to a cargo trike without checking torque path, structure and duty cycle.</td></tr>
+          </tbody></table>
+        </div>
+      </details>
+    </section>
+
+    <section class="chapter chapter-freewheel" id="freewheel">
+      <div class="chapter-intro">
+        <div class="chapter-number">03 <span>/ THE MRII MECHANICAL IDEA</span></div>
+        <div class="chapter-title-wrap"><h2>The rider signal must<br>survive powered drive.</h2><p>MRII measures rider input mechanically while the drivetrain continues carrying torque through the vehicle.</p></div>
+      </div>
+      <div class="freewheel-layout">
+        <div class="freewheel-copy">
+          <p class="small-cap">A KNOWN ONE-WAY DRIVE PRINCIPLE</p>
+          <h3>A freewheel lets the rider drive without forcing the pedals to follow the powered axle.</h3>
+          <p>In a common bicycle freewheel, spring-loaded pawls engage ratchet teeth during pedaling. When the wheel outruns the sprocket, the pawls overrun and the pedals can remain still. This is an established mechanism principle, not the invention being presented here.</p>
+          <p>In the reference cargo tricycle, the sprocket is fixed directly to the solid axle. If the axle is driven by a motor, the chain and pedals can be back-driven. MRII's torque path has to account for that constraint.</p>
+          <div class="two-state"><div><span class="state-label">PEDAL LEADS</span><strong>Engage</strong><p>Human torque should pass from sprocket to axle.</p></div><div><span class="state-label">AXLE LEADS</span><strong>Overrun</strong><p>Motor-driven axle should not force the pedals to rotate.</p></div></div>
+          <details class="text-disclosure">
+            <summary>Ratchet-and-pawl vs. sprag/roller clutch</summary>
+            <div class="disclosure-body">
+              <p><strong>Ratchet and pawl:</strong> familiar, widely used and often economical. Torque is carried through discrete tooth engagement; tooth geometry, pawl springs, engagement angle, wear and impact loading matter.</p>
+              <p><strong>Sprag or roller-ramp clutch:</strong> one-way action is produced by wedge engagement between controlled inner and outer races. It can be compact and engage without ratchet-tooth stepping, but torque capacity depends on raceway geometry, hardness, finish, tolerances, lubrication and alignment. A raw, unprepared axle is not automatically a suitable clutch race.</p>
+              <p><strong>Role within MRII:</strong> an overrunning torque-transmission element is placed downstream of the compliant rider-input interface; the powered actuator enters farther downstream. The familiar one-way mechanism is a functional element in the architecture. MRII is the rider-intent measurement and torque-isolation system.</p>
+            </div>
+          </details>
+        </div>
+        <div class="freewheel-media">
+          <div class="user-media media-video media-video-large" data-user-media="freewheel-mechanism.mp4">
+            <video src="assets/user/freewheel-mechanism.mp4" controls playsinline preload="metadata" aria-label="Ratchet and pawl or freewheel animation"></video>
+            <div class="media-empty"><span class="slot-tag">ANIMATION · 02</span><strong>Freewheel / ratchet animation</strong><p>Insert your animation showing the pawls engaging and overrunning.</p><code>assets/user/freewheel-mechanism.mp4</code></div>
+          </div>
+          <details class="text-disclosure reference-video-details">
+            <summary>Watch a reference ratchet-and-pawl animation</summary>
+            <div class="disclosure-body">
+              <div class="reference-video"><iframe src="https://www.youtube-nocookie.com/embed/C5TM-VKO_QQ?rel=0" title="Ratchet and pawl mechanism — generic one-way motion animation" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+              <p class="reference-credit">Generic ratchet-and-pawl explanation; included only to illustrate the established one-way-drive principle. <a href="https://www.youtube.com/watch?v=C5TM-VKO_QQ" target="_blank" rel="noopener">Open video ↗</a></p>
+            </div>
+          </details>
+          <div class="mechanism-note"><span class="mechanism-note-number">→</span><div><strong>Design direction</strong><p>Pedals drive the axle. The axle should not drive the pedals back.</p></div></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="chapter chapter-tirare section-dark" id="tirare">
+      <div class="chapter-intro intro-light">
+        <div class="chapter-number">04 <span>/ TIRARE'S ARCHITECTURE</span></div>
+        <div class="chapter-title-wrap"><h2>Three connected jobs.<br>One retrofit.</h2><p>Tirare's system has to separate rider input, one-way pedal drive and electric assistance without replacing the tricycle's core structure.</p></div>
+      </div>
+      <div class="architecture-steps">
+        <article class="architecture-step"><div class="step-index">01</div><div><p class="small-cap">MECHANICAL TORQUE PATH</p><h3>Keep the drivetrain legible.</h3><p>The existing pedals and chain continue transmitting human torque. A known overrunning element forms part of the MRII torque path so powered-side drive can be separated from the rider-input interface.</p><span class="stage-chip">Architecture defined; integration testing remains</span></div></article>
+        <article class="architecture-step"><div class="step-index">02</div><div><p class="small-cap">MRII · RIDER-INTENT MEASUREMENT</p><h3>Measure effort mechanically.</h3><p>A compliant coupling twists under rider torque; an AS5047P measures relative angle. After calibration, that angular signal can estimate rider input.</p><span class="stage-chip stage-built">Physical subsystem demonstrated</span></div></article>
+        <article class="architecture-step"><div class="step-index">03</div><div><p class="small-cap">ELECTRIC ASSIST</p><h3>Add torque, not a speed command.</h3><p>A frame-mounted motor adds assist downstream. Pedals, chain, steering and brakes remain; the planned control is rider-requested torque assistance, not speed control.</p><span class="stage-chip">Integrated vehicle still to validate</span></div></article>
+      </div>
+      <div class="mrii-layout">
+        <div class="mrii-copy"><p class="small-cap">MECHANICAL RIDER INTENT INTERFACE</p><h3>MRII is the sensing architecture—not the entire vehicle.</h3><p>The demonstrated subsystem uses a compliant flexure coupling and an AS5047P magnetic angle sensor to measure relative rotation. A downstream overrunning element is intended to limit powered-side torque influencing the rider-input signal.</p><p>The engineering question is whether that signal remains useful and isolated under matched load conditions after the mechanism is integrated into the drivetrain.</p><div class="mrii-path-principle"><span>THE IMPORTANT DISTINCTION</span><p>MRII is not a replacement powertrain. Human torque continues mechanically through the input member and compliant coupling toward the drivetrain; the small relative twist supplies the measurement signal. The downstream overrunning element is intended to keep motor-side torque from corrupting that rider-input signal.</p><a href="#machine">See the baseline force path ↑</a></div><details class="text-disclosure detail-on-dark"><summary>MRII measurement path</summary><div class="disclosure-body"><p>Human torque → input member → compliant torsional coupling → output member → overrunning torque-transmission element → downstream drivetrain. The powered actuator enters downstream of the overrunning mechanism.</p><p>Angular displacement is the measured quantity; physical torque depends on calibration and the stiffness of the assembled coupling. Numerical analysis is not a substitute for traceable calibration and synchronized physical testing.</p></div></details><p class="ip-line">India provisional patent application · <strong>202611118183</strong></p></div>
+        <div class="mrii-media-stack">
+          <div class="user-media media-video media-video-large" data-user-media="mrii-technical.mp4"><video src="assets/user/mrii-technical.mp4" controls playsinline preload="metadata" aria-label="MRII technical demonstration video"></video><div class="media-empty"><span class="slot-tag">VIDEO · MRII</span><strong>MRII technical walkthrough</strong><p>Shows the compliant interface, relative-angle sensing and the mechanical torque path.</p><code>assets/user/mrii-technical.mp4</code></div></div>
+          <div class="user-media media-model mrii-detail-model" data-user-media="mrii-interface-detail.glb"><model-viewer src="assets/user/mrii-interface-detail.glb" alt="Interactive CAD view of the MRII compliant coupling and rider-input sensing interface" camera-controls auto-rotate rotation-per-second="8deg" shadow-intensity="0.8"></model-viewer><div class="media-empty"><span class="slot-tag">OPTIONAL MRII CAD DETAIL</span><strong>Compliant coupling and sensor</strong><p>Use a close-up of the MRII input member, flexures, output member and angle-sensing arrangement.</p><code>assets/user/mrii-interface-detail.glb</code><small>Still fallback: assets/user/mrii-interface-detail.jpg</small></div></div>
+        </div>
+      </div>
+      <div class="architecture-footnote">Indian provisional application 202611118183 · filed, not granted. MRII’s physical subsystem has been demonstrated; full-vehicle integration and field performance remain to be validated.</div>
+    </section>
+
+    <section class="chapter chapter-motor" id="motor">
+      <div class="chapter-intro">
+        <div class="chapter-number">05 <span>/ MOTOR AND MOUNTING</span></div>
+        <div class="chapter-title-wrap"><h2>Size for the load.<br>Mount for the reaction.</h2><p>The motor choice follows the tricycle's operating envelope—not the other way around.</p></div>
+      </div>
+      <div class="motor-layout">
+        <div class="motor-options">
+          <div class="motor-option"><span class="motor-option-no">A</span><div><h3>BLDC + reduction</h3><p>A conventional reference architecture: high-speed motor, reduction stage, frame mount and axle coupling. The reduction ratio, thermal duty and packaging are to be sized against the actual loaded trike.</p></div></div>
+          <div class="motor-option"><span class="motor-option-no">B</span><div><h3>Large-diameter axial flux</h3><p>A candidate worth investigating for a thin, large-diameter package and high torque density. Direct drive might avoid gearbox backlash, but only if low-speed torque, start-up load, thermal performance, cost and mass meet the duty requirement.</p></div></div>
+          <div class="motor-option"><span class="motor-option-no">C</span><div><h3>Frame load path</h3><p>The motor stator's reaction torque still needs a deliberate structural path into the frame. Removing the gearbox removes one source of backlash; it does not remove reaction torque. A compliant tether is not a substitute for a designed torque-reaction mount.</p></div></div>
+          <details class="text-disclosure"><summary>Early sizing envelope in the current planning</summary><div class="disclosure-body"><p>The initial design envelope being explored is 250–350 W continuous, at least 500 W peak, and a 36–48 V LFP pack around 400–600 Wh. These are planning values, not locked specifications. Final selection requires measured wheel torque, payload, gradient, acceleration, shift duty, heat rejection and energy-per-route data. A nominal battery capacity does not by itself establish a full-shift runtime.</p></div></details>
+        </div>
+        <div class="motor-media">
+          <div class="user-media media-model" data-user-media="axial-flux-motor.glb"><model-viewer src="assets/user/axial-flux-motor.glb" alt="Interactive CAD view of the axial flux motor candidate" camera-controls auto-rotate rotation-per-second="8deg" shadow-intensity="0.8"></model-viewer><div class="media-empty"><span class="slot-tag">MOTOR MODEL</span><strong>Axial-flux motor candidate</strong><p>Show the rotor/stator geometry and the proposed mounting relationship beneath the cargo bed.</p><code>assets/user/axial-flux-motor.glb</code></div></div>
+          <div class="user-media media-video" data-user-media="motor-mount.mp4"><video src="assets/user/motor-mount.mp4" controls playsinline preload="metadata" aria-label="Motor mounting concept animation"></video><div class="media-empty"><span class="slot-tag">ANIMATION · 04</span><strong>Mounting and torque reaction</strong><p>Show how the motor is supported and where stator reaction torque enters the frame.</p><code>assets/user/motor-mount.mp4</code></div></div>
+          <details class="text-disclosure reference-video-details">
+            <summary>Watch an axial-flux motor working-principle animation</summary>
+            <div class="disclosure-body">
+              <div class="reference-video"><iframe src="https://www.youtube-nocookie.com/embed/rVDBnZill40?rel=0" title="Axial flux motor — independent 3D working-principle animation" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+              <p class="reference-credit">Independent 3D reference animation by 3D Animation Technology Video; useful for the rotor/stator geometry, not a Tirare motor design or endorsement. <a href="https://www.youtube.com/watch?v=rVDBnZill40" target="_blank" rel="noopener">Open video ↗</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-model" id="model">
+      <div class="chapter-intro">
+        <div class="chapter-number">06 <span>/ ACCESS AND PAYMENTS</span></div>
+        <div class="chapter-title-wrap"><h2>Reduce the first payment.<br>Keep the asset working.</h2><p>The proposed model is not just a cheaper kit. It is a way to access assistance without buying a replacement vehicle and battery outright.</p></div>
+      </div>
+      <div class="service-path">
+        <div class="service-step"><span>01</span><h3>Keep the tricycle</h3><p>The operator keeps the existing vehicle, familiar customers and workshop relationships.</p></div>
+        <div class="service-arrow">→</div>
+        <div class="service-step"><span>02</span><h3>Install locally</h3><p>A trained workshop installs and services a removable retrofit assembly with scheduled downtime.</p></div>
+        <div class="service-arrow">→</div>
+        <div class="service-step"><span>03</span><h3>Access the battery</h3><p>A workshop-controlled battery pool enables swaps; the operator need not purchase the battery as a separate asset.</p></div>
+        <div class="service-arrow">→</div>
+        <div class="service-step"><span>04</span><h3>Pay as they work</h3><p>Recurring charges are designed around daily or weekly cash flow, subject to willingness-to-pay and unit-economics tests.</p></div>
+      </div>
+      <div class="economics-row">
+        <div class="economics-number"><span>PLANNING ESTIMATE</span><strong>₹13,000</strong><small>per retrofit system</small></div>
+        <div class="economics-copy"><p>This is the projected per-system deployment cost in Tirare's grant application after pilot manufacturing setup—not a verified bill of materials, market quote or final operator price. Battery fleet capital and the ongoing energy/service network must be costed separately.</p><details class="text-disclosure"><summary>What the payment model must cover</summary><div class="disclosure-body"><p>Hardware and assembly; installation; quality checks; battery purchase and replacement reserve; charging and swap operations; workshop margin; maintenance and warranty; collection costs; payment defaults; financing; and service downtime. The tariff should be tested against the operator's net work income, not merely against the price of a new EV.</p><p>Options to evaluate include per-shift or daily access, weekly lease, subscription and a battery-swap fee. The tariff and contract have not been finalised. The vehicle must remain manually usable when electric assistance is unavailable; payment collection should not make an otherwise operable vehicle unusable.</p></div></details></div>
+      </div>
+    </section>
+
+    <section class="chapter chapter-pilot" id="pilot">
+      <div class="chapter-intro">
+        <div class="chapter-number">07 <span>/ FROM DESIGN TO PILOT</span></div>
+        <div class="chapter-title-wrap"><h2>Prove the mechanism.<br>Then measure the work.</h2><p>The pilot should answer technical and livelihood questions with recorded evidence, not assumptions.</p></div>
+      </div>
+      <div class="pilot-stages">
+        <article class="pilot-stage"><span class="stage-no">GATE 01</span><h3>Bench tests</h3><p>Verify drive/overrun direction, torque capacity, overrun drag, wear, heat, dust tolerance and failure behavior. Calibrate MRII with a traceable torque reference.</p></article>
+        <article class="pilot-stage"><span class="stage-no">GATE 02</span><h3>Vehicle integration</h3><p>Check packaging, frame/mount loads, axle and bearings, brakes, steering, wiring, hard disconnect, manual operation with assist off, and installation repeatability.</p></article>
+        <article class="pilot-stage"><span class="stage-no">GATE 03</span><h3>Controlled operator trial</h3><p>After engineering review and the correct regulatory pathway: consented use, defined stop criteria, trained service support, baseline measurements and follow-up logs.</p></article>
+      </div>
+      <div class="outcome-band">
+        <div><p class="small-cap">WHAT THE PILOT MEASURES</p><h3>Does the system help<br>without shifting the risk?</h3></div>
+        <div class="outcome-list"><span>Torque signal & isolation</span><span>Uptime, failures & service</span><span>Energy / swap frequency</span><span>Trips, payload & distance</span><span>Fatigue & perceived effort</span><span>Net income & operating cost</span><span>Install time & workshop fit</span><span>Willingness to pay / continued use</span></div>
+      </div>
+      <details class="text-disclosure disclosure-wide">
+        <summary>Field-study method: the minimum credible comparison</summary>
+        <div class="disclosure-body"><p>Record a baseline for each participating vehicle before retrofit: ownership, route, load/payload, shift duration, trips, distance, income, costs, breakdowns and self-reported effort/fatigue. Repeat at defined intervals after installation, preserving comparable route and workload context where feasible. Log battery swaps, service events, component changes and incidents. Track retention and willingness to pay, not just initial acceptance.</p><p>Use paired before/after records and report missing data and confounders. Without a suitable comparison design, describe results as observed changes rather than causal impact. The DIV application proposes a pilot-scale evaluation; the actual number of vehicles should follow prototype readiness, funding, partner capacity and the safety gate.</p></div>
+      </details>
+    </section>
+
+    <section class="chapter chapter-people section-dark" id="people">
+      <div class="people-layout">
+        <div class="people-copy">
+          <div class="chapter-number">08 <span>/ PROGRESS & PEOPLE</span></div>
+          <h2>Built by asking<br>better questions.</h2>
+          <p>Anurag began without a formal engineering background, working on a laptop he repaired himself. He sought out people who could challenge the design—and rebuilt the architecture when feedback exposed a fundamental drivetrain flaw.</p>
+          <div class="mentor-card">
+            <figure class="mentor-portrait">
+              <img src="https://resources.plaksha.edu.in/ixcache/media/people/andy-ruina/15814/Andy-Ruina_4da16699246ead6b1ed6b9012f2a07a1_1791185548.webp" alt="Andy Ruina" loading="lazy" referrerpolicy="no-referrer" data-source-image>
+              <figcaption>Portrait · Plaksha University faculty profile</figcaption>
+            </figure>
+            <div class="mentor-content">
+              <p class="small-cap">ENGINEERING GUIDANCE</p>
+              <h3>Professor Andy Ruina</h3>
+              <p>His work spans dynamics and solid mechanics, including bicycle dynamics, biomechanics and friction. He was a professor at Cornell University from 1980 to 2023 and is currently listed as Visiting Professor at Plaksha University.</p>
+              <p>Anurag found his bicycle-mechanics work while searching for help with Tirare and reached out directly. Professor Ruina has since provided feedback on engineering decisions as the drivetrain architecture evolved.</p>
+              <div class="mentor-links"><a href="https://plaksha.edu.in/faculty/andy-ruina" target="_blank" rel="noopener">Official faculty profile ↗</a><a href="http://ruina.tam.cornell.edu/research/topics/bicycle_mechanics/overview.php" target="_blank" rel="noopener">Bicycle mechanics research ↗</a><a href="https://vod.video.cornell.edu/media/Andy%2BRuina%2Bexplains%2Bhow%2Bbicycles%2Bbalance%2Bthemselves/1_6jnx12y5" target="_blank" rel="noopener">Cornell bicycle-dynamics video ↗</a></div>
+              <p class="people-note">Direct technical guidance; no formal university partnership is claimed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="evidence-panel">
+          <p class="small-cap">MILESTONES SO FAR</p>
+          <div class="evidence-item"><strong>IIIT Delhi · E-Pitch Café</strong><span>Winner, Proof-of-Concept track · ₹1,00,000 prototype-stage grant</span></div>
+          <div class="evidence-item"><strong>CiPD, IIIT Delhi</strong><span>Incubation, laboratory access and patent-support pathway</span></div>
+          <div class="evidence-item"><strong>Technical guidance</strong><span>STMicroelectronics staff and Rajeev Tiwari (STEMROBO), through the project\’s support ecosystem</span></div>
+          <div class="evidence-item"><strong>iHub Anubhuti Foundation</strong><span>Startup ecosystem support</span></div>
+          <div class="evidence-item"><strong>MRII</strong><span>Physical subsystem built and demonstrated; full-vehicle integration remains a separate validation step</span></div>
+          <div class="evidence-item"><strong>Indian provisional application</strong><span>202611118183 · filed, not granted</span></div>
+          <div class="evidence-item"><strong>IRIS National Fair</strong><span>Engineering-mechanics submission · ETSD0071, submitted for evaluation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing chapter" id="collaborate">
+      <div class="closing-heading"><p class="small-cap">THE REQUEST</p><h2>Help us find the failure<br><em>before the field does.</em></h2><p>We are looking for a focused engineering review and a path to a manufacturable, testable pilot—not an endorsement of an unvalidated product.</p></div>
+      <div class="review-asks">
+        <div><span>01</span><p><strong>Drivetrain architecture</strong><br>Check the reference axle, one-way torque path, MRII sensing interface and powered-side isolation.</p></div>
+        <div><span>02</span><p><strong>Motor and mounting</strong><br>Review loaded torque, gearing, thermal duty and frame reaction loads.</p></div>
+        <div><span>03</span><p><strong>Build and validation</strong><br>Identify a practical test fixture, manufacturing route and staged test plan.</p></div>
+        <div><span>04</span><p><strong>Pilot readiness</strong><br>Advise on installation, workshop service and the applicable approval route.</p></div>
+      </div>
+      <div class="contact-line"><div><span class="small-cap">TIRARE MOBILITY TECHNOLOGIES</span><strong>Anurag Mishra <span>· Founder</span></strong></div><a href="mailto:anuragfromtirare@gmail.com">anuragfromtirare@gmail.com <span>↗</span></a><a href="https://tirare-webpage.github.io/" target="_blank" rel="noopener">Project site <span>↗</span></a><a href="https://www.linkedin.com/in/anurag-mishra-b25733340/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top"><span>TIRARE / ENGINEERING BRIEFING</span><span>October 2026</span></div>
+    <details class="sources-details">
+      <summary>Sources and specification notes</summary>
+      <div class="sources-grid">
+        <div><strong>Whole-vehicle and conversion examples</strong><a href="https://www.tvsmotor.com/three-wheelers/king-kargo-ev-hd" target="_blank" rel="noopener">Electric cargo EV manufacturer specifications ↗</a><a href="https://www.bajajauto.com/three-wheelers/riki" target="_blank" rel="noopener">Electric cargo three-wheeler specifications and current listed price ↗</a><a href="https://www.sagarelectrotech.com/product-page/pedal-rickshaw-conversion-kit" target="_blank" rel="noopener">48 V / 800 W pedal-rickshaw kit listing ↗</a><a href="https://www.leoev.in/collections/ev-scooter-conversionkit/2205927000002418341" target="_blank" rel="noopener">Scooter conversion kit variants and price listings ↗</a></div>
+        <div><strong>Mechanical principles and motor research</strong><a href="https://www.bikeradar.com/advice/buyers-guides/freehubs" target="_blank" rel="noopener">Pawl and ratchet freehub explanation ↗</a><a href="https://www.youtube.com/watch?v=C5TM-VKO_QQ" target="_blank" rel="noopener">Ratchet-and-pawl animation reference ↗</a><a href="https://www.gmnbt.com/resources/product-installation-lubrication/sprag-clutch-elements/" target="_blank" rel="noopener">Sprag clutch raceway, hardness and surface requirements ↗</a><a href="https://www.mdpi.com/2075-1702/10/12/1178" target="_blank" rel="noopener">Review of axial-flux permanent-magnet motors ↗</a><a href="https://www.youtube.com/watch?v=rVDBnZill40" target="_blank" rel="noopener">Axial-flux motor animation reference ↗</a><a href="https://ev.delhi.gov.in/retro-fitment" target="_blank" rel="noopener">Delhi EV retrofitment overview ↗</a></div>
+        <div><strong>Engineering guidance</strong><a href="https://plaksha.edu.in/faculty/andy-ruina" target="_blank" rel="noopener">Professor Andy Ruina · official profile ↗</a><a href="http://ruina.tam.cornell.edu/research/topics/bicycle_mechanics/overview.php" target="_blank" rel="noopener">Bicycle mechanics research at Cornell ↗</a><a href="https://vod.video.cornell.edu/media/Andy%2BRuina%2Bexplains%2Bhow%2Bbicycles%2Bbalance%2Bthemselves/1_6jnx12y5" target="_blank" rel="noopener">Cornell bicycle-dynamics explainer ↗</a></div>
+      </div>
+      <p class="source-note">Listed prices are snapshots from public pages, not procurement quotations. Vehicle prices, kit completeness and included batteries differ. Product photos remain linked to their source pages. User CAD and mechanism files should be added only in accordance with counsel's disclosure plan.</p>
+    </details>
+    <p class="footer-end">A project briefing: design intent, current evidence and the next engineering questions.</p>
+  </footer>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

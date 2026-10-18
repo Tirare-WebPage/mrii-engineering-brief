@@ -1,0 +1,2 @@
+Place your files in this folder with the exact names listed in ../README.md.
+Do not create empty media files. Use GLB for interactive CAD, JPG as a rendered fallback, and MP4 (H.264/AAC) for videos.
